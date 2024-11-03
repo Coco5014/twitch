@@ -1,6 +1,6 @@
 <div class="marquee-container">
   <div class="marquee">
-    <span>🥥 Actuellement en live : <a href="https://www.twitch.tv/Cocolapps" target="_blank" class="twitch-name">@Cocolapps</a> 🥥</span>
+    🥥 Actuellement en live : <a href="https://www.twitch.tv/Cocolapps" target="_blank" class="twitch-name">@Cocolapps</a> 🥥
   </div>
 </div>
 
@@ -8,25 +8,26 @@
   /* Conteneur principal */
   .marquee-container {
     width: 100%;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
     position: fixed;
     bottom: 20px;
     z-index: 9999;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); /* Effet de fondu en sortie */
   }
 
-  /* Texte défilant avec effet néon et ombre dynamique */
+  /* Style de la capsule autour du texte */
   .marquee {
     display: inline-block;
-    font-size: 22px;
+    padding: 10px 30px;
+    font-size: 20px;
     font-weight: bold;
     color: #ffffff;
+    background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    border-radius: 25px; /* Forme arrondie */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Ombre */
     white-space: nowrap;
-    animation: marquee 10s linear infinite;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.6), 0 0 20px rgba(145, 71, 255, 0.8), 0 0 40px rgba(145, 71, 255, 1);
+    animation: marquee 10s linear infinite; /* Animation de défilement */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.6);
   }
 
   /* Animation de défilement fluide */
@@ -35,16 +36,16 @@
     100% { transform: translateX(-100%); }
   }
 
-  /* Style néon pour le lien Twitch avec effet de surbrillance */
+  /* Style néon pour le lien Twitch */
   .twitch-name {
-    color: #9147ff;
+    color: #9147ff; /* Couleur officielle Twitch */
     font-weight: bold;
     text-decoration: none;
     margin-left: 5px;
     animation: neon-glow 1.5s ease-in-out infinite alternate;
   }
 
-  /* Glow pulsant dynamique pour le nom Twitch */
+  /* Animation de glow pulsant */
   @keyframes neon-glow {
     from {
       text-shadow: 0 0 5px #9147ff, 0 0 10px #9147ff, 0 0 20px #9147ff, 0 0 30px rgba(145, 71, 255, 0.8);
@@ -54,7 +55,7 @@
     }
   }
 
-  /* Hover pour intensifier le glow */
+  /* Hover pour le lien Twitch */
   .twitch-name:hover {
     color: #ffffff;
     text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 1);
