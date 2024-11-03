@@ -4,7 +4,6 @@
   </div>
 </div>
 
-
 <style>
   /* Conteneur principal */
   .marquee-container {
@@ -19,7 +18,7 @@
   /* Style de la capsule autour du texte */
   .marquee {
     display: inline-block;
-    padding: 10px 30px;
+    padding: 10px 25px;
     font-size: 20px;
     font-weight: bold;
     color: #ffffff;
@@ -27,7 +26,7 @@
     border-radius: 25px; /* Forme arrondie */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Ombre douce */
     white-space: nowrap;
-    animation: marquee 15s linear infinite; /* Animation de défilement */
+    animation: marquee 15s linear infinite; /* Animation de défilement lent */
   }
 
   /* Animation de défilement fluide */
@@ -36,15 +35,15 @@
     100% { transform: translateX(-100%); }
   }
 
-  /* Style sobre pour le lien Twitch */
+  /* Style pour le lien Twitch */
   .twitch-name {
-    color: #9147ff; /* Couleur officielle Twitch */
+    color: #9147ff; /* Couleur officielle de Twitch */
     font-weight: bold;
     text-decoration: none;
     margin-left: 5px;
   }
 
-  /* Survol simple pour le lien Twitch */
+  /* Style sobre pour le survol */
   .twitch-name:hover {
     color: #ffffff;
   }
