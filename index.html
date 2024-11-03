@@ -1,1 +1,36 @@
+<div class="marquee-container">
+  <div class="marquee">
+    Suivez-moi sur Twitch : <span class="twitch-name">@VotreNomTwitch</span>
+  </div>
+</div>
+
+<style>
+  .marquee-container {
+    width: 100%; /* S'ajuste à la largeur de l'overlay */
+    overflow: hidden; /* Masque le texte en dehors du conteneur */
+    position: fixed;
+    bottom: 10px; /* Placez selon l'endroit où vous souhaitez afficher */
+    text-align: center;
+    z-index: 999; /* Au-dessus des autres éléments */
+  }
+
+  .marquee {
+    display: inline-block;
+    white-space: nowrap; /* Empêche le retour à la ligne */
+    animation: marquee 10s linear infinite; /* Animation de défilement */
+    font-size: 20px; /* Taille du texte */
+    font-weight: bold;
+    color: #ff3f3f; /* Couleur du texte (Twitch) */
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+  }
+
+  .twitch-name {
+    color: #9147ff; /* Couleur Twitch pour le pseudo */
+    margin-left: 10px;
+  }
+</style>
 
