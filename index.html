@@ -15,42 +15,48 @@
     display: flex;
     justify-content: center;
     padding: 10px 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); /* Effet de fondu en sortie */
   }
 
-  /* Texte défilant avec effet d'ombre */
+  /* Texte défilant avec effet néon et ombre dynamique */
   .marquee {
     display: inline-block;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     color: #ffffff;
     white-space: nowrap;
-    animation: marquee 12s linear infinite;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(145, 71, 255, 0.7);
+    animation: marquee 10s linear infinite;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.6), 0 0 20px rgba(145, 71, 255, 0.8), 0 0 40px rgba(145, 71, 255, 1);
   }
 
-  /* Animation de défilement de gauche à droite */
+  /* Animation de défilement fluide */
   @keyframes marquee {
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }
   }
 
-  /* Style du lien Twitch avec effet glow dynamique */
+  /* Style néon pour le lien Twitch avec effet de surbrillance */
   .twitch-name {
-    color: #9147ff; /* Couleur Twitch */
+    color: #9147ff;
     font-weight: bold;
-    text-decoration: none; /* Supprime le soulignement */
+    text-decoration: none;
     margin-left: 5px;
-    animation: glow 1.5s ease-in-out infinite alternate; /* Effet de glow animé */
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
   }
 
+  /* Glow pulsant dynamique pour le nom Twitch */
+  @keyframes neon-glow {
+    from {
+      text-shadow: 0 0 5px #9147ff, 0 0 10px #9147ff, 0 0 20px #9147ff, 0 0 30px rgba(145, 71, 255, 0.8);
+    }
+    to {
+      text-shadow: 0 0 10px #9147ff, 0 0 20px #9147ff, 0 0 30px #9147ff, 0 0 40px rgba(145, 71, 255, 1);
+    }
+  }
+
+  /* Hover pour intensifier le glow */
   .twitch-name:hover {
-    color: #ffffff; /* Change la couleur au survol */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.8);
-  }
-
-  /* Animation de glow pulsant */
-  @keyframes glow {
-    from { text-shadow: 0 0 5px #9147ff, 0 0 10px #9147ff, 0 0 15px #9147ff, 0 0 20px rgba(145, 71, 255, 0.5); }
-    to { text-shadow: 0 0 10px #9147ff, 0 0 20px #9147ff, 0 0 30px #9147ff, 0 0 40px rgba(145, 71, 255, 0.8); }
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 1);
   }
 </style>
