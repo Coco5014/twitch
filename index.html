@@ -1,6 +1,6 @@
 <div class="marquee-container">
   <div class="marquee">
-    <span>📺 Suivez-moi sur Twitch : <span class="twitch-name">@VotreNomTwitch</span> 📺</span>
+    <span>🥥 Suivez-moi sur Twitch : <a href="https://www.twitch.tv/Cocolapps" target="_blank" class="twitch-name">@Cocolapps</a> 🥥</span>
   </div>
 </div>
 
@@ -10,41 +10,42 @@
     width: 100%;
     overflow: hidden;
     position: fixed;
-    bottom: 20px; /* Place le texte à 20px du bas */
+    bottom: 20px;
     z-index: 9999;
     display: flex;
     justify-content: center;
     padding: 10px 0;
-    background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.5) 100%);
   }
 
-  /* Style du texte avec effet glow et ombre */
+  /* Texte défilant avec style d'ombre */
   .marquee {
     display: inline-block;
-    padding: 10px 30px;
     font-size: 20px;
     font-weight: bold;
     color: #ffffff;
     white-space: nowrap;
-    animation: marquee 12s linear infinite; /* Animation de défilement */
+    animation: marquee 12s linear infinite;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(145, 71, 255, 0.7);
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 30px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
   }
 
-  /* Effet de défilement de gauche à droite */
+  /* Animation de défilement de gauche à droite */
   @keyframes marquee {
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }
   }
 
-  /* Style pour le nom Twitch avec effet glow dynamique */
+  /* Style du lien Twitch avec glow dynamique */
   .twitch-name {
     color: #9147ff; /* Couleur Twitch */
     font-weight: bold;
-    padding-left: 5px;
-    animation: glow 1.5s ease-in-out infinite alternate; /* Effet de glow animé */
+    text-decoration: none; /* Supprime le soulignement */
+    margin-left: 5px;
+    animation: glow 1.5s ease-in-out infinite alternate;
+  }
+
+  .twitch-name:hover {
+    color: #ffffff; /* Change la couleur au survol */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.8);
   }
 
   /* Animation de glow pulsant */
