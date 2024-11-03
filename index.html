@@ -15,49 +15,50 @@
     z-index: 9999;
   }
 
-  /* Style de la capsule autour du texte */
+  /* Style de la capsule avec transparence et bordure */
   .marquee {
     display: inline-block;
-    padding: 10px 30px;
+    padding: 12px 35px;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 600;
     color: #ffffff;
-    background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
-    border-radius: 25px; /* Forme arrondie */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Ombre */
+    background: rgba(20, 20, 20, 0.6); /* Fond translucide subtil */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Bordure légère */
+    border-radius: 30px; /* Forme arrondie et élégante */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5); /* Ombre douce */
     white-space: nowrap;
-    animation: marquee 10s linear infinite; /* Animation de défilement */
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.6);
+    animation: marquee 15s linear infinite;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Ombre douce pour le texte */
   }
 
-  /* Animation de défilement fluide */
+  /* Animation de défilement lent et élégant */
   @keyframes marquee {
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }
   }
 
-  /* Style néon pour le lien Twitch */
+  /* Style pour le lien Twitch avec glow subtil et animation de pulsation */
   .twitch-name {
-    color: #9147ff; /* Couleur officielle Twitch */
+    color: #9147ff;
     font-weight: bold;
     text-decoration: none;
     margin-left: 5px;
-    animation: neon-glow 1.5s ease-in-out infinite alternate;
+    animation: twitch-glow 1.8s ease-in-out infinite alternate;
   }
 
-  /* Animation de glow pulsant */
-  @keyframes neon-glow {
+  /* Animation de glow pulsant pour le nom Twitch */
+  @keyframes twitch-glow {
     from {
-      text-shadow: 0 0 5px #9147ff, 0 0 10px #9147ff, 0 0 20px #9147ff, 0 0 30px rgba(145, 71, 255, 0.8);
+      text-shadow: 0 0 8px #9147ff, 0 0 12px #9147ff, 0 0 20px rgba(145, 71, 255, 0.7);
     }
     to {
-      text-shadow: 0 0 10px #9147ff, 0 0 20px #9147ff, 0 0 30px #9147ff, 0 0 40px rgba(145, 71, 255, 1);
+      text-shadow: 0 0 12px #9147ff, 0 0 18px #9147ff, 0 0 30px rgba(145, 71, 255, 1);
     }
   }
 
-  /* Hover pour le lien Twitch */
+  /* Survol du lien pour un effet de focus */
   .twitch-name:hover {
     color: #ffffff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 1);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.8);
   }
 </style>
