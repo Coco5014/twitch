@@ -1,36 +1,47 @@
 <div class="marquee-container">
   <div class="marquee">
-    Suivez-moi sur Twitch : <span class="twitch-name">@VotreNomTwitch</span>
+    <span>Suivez-moi sur Twitch : <span class="twitch-name">@VotreNomTwitch</span></span>
   </div>
 </div>
 
 <style>
+  /* Conteneur principal */
   .marquee-container {
-    width: 100%; /* S'ajuste à la largeur de l'overlay */
-    overflow: hidden; /* Masque le texte en dehors du conteneur */
+    width: 100%; /* S'étend sur toute la largeur de l'écran */
+    overflow: hidden; /* Cache le texte sortant du conteneur */
     position: fixed;
-    bottom: 10px; /* Placez selon l'endroit où vous souhaitez afficher */
-    text-align: center;
-    z-index: 999; /* Au-dessus des autres éléments */
+    bottom: 15px; /* Place le conteneur à 15px du bas */
+    z-index: 999; /* Place au-dessus des autres éléments */
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
   }
 
+  /* Effet de fond transparent avec ombre */
   .marquee {
     display: inline-block;
-    white-space: nowrap; /* Empêche le retour à la ligne */
-    animation: marquee 10s linear infinite; /* Animation de défilement */
-    font-size: 20px; /* Taille du texte */
+    background: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+    border-radius: 25px;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+    animation: marquee 15s linear infinite; /* Animation de défilement */
+    font-size: 18px;
     font-weight: bold;
-    color: #ff3f3f; /* Couleur du texte (Twitch) */
+    color: #ffffff;
   }
 
+  /* Animation de défilement du texte */
   @keyframes marquee {
     from { transform: translateX(100%); }
     to { transform: translateX(-100%); }
   }
 
+  /* Style spécifique pour le nom Twitch */
   .twitch-name {
-    color: #9147ff; /* Couleur Twitch pour le pseudo */
-    margin-left: 10px;
+    color: #9147ff; /* Couleur officielle de Twitch */
+    margin-left: 5px;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(145, 71, 255, 0.6);
   }
 </style>
-
