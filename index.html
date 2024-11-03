@@ -1,47 +1,55 @@
 <div class="marquee-container">
   <div class="marquee">
-    <span>Suivez-moi sur Twitch : <span class="twitch-name">@VotreNomTwitch</span></span>
+    <span>📺 Suivez-moi sur Twitch : <span class="twitch-name">@VotreNomTwitch</span> 📺</span>
   </div>
 </div>
 
 <style>
   /* Conteneur principal */
   .marquee-container {
-    width: 100%; /* S'étend sur toute la largeur de l'écran */
-    overflow: hidden; /* Cache le texte sortant du conteneur */
+    width: 100%;
+    overflow: hidden;
     position: fixed;
-    bottom: 15px; /* Place le conteneur à 15px du bas */
-    z-index: 999; /* Place au-dessus des autres éléments */
+    bottom: 20px; /* Place le texte à 20px du bas */
+    z-index: 9999;
     display: flex;
     justify-content: center;
     padding: 10px 0;
+    background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.5) 100%);
   }
 
-  /* Effet de fond transparent avec ombre */
+  /* Style du texte avec effet glow et ombre */
   .marquee {
     display: inline-block;
-    background: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
-    border-radius: 25px;
-    padding: 10px 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
-    white-space: nowrap;
-    animation: marquee 15s linear infinite; /* Animation de défilement */
-    font-size: 18px;
+    padding: 10px 30px;
+    font-size: 20px;
     font-weight: bold;
     color: #ffffff;
+    white-space: nowrap;
+    animation: marquee 12s linear infinite; /* Animation de défilement */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(145, 71, 255, 0.7);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 30px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
   }
 
-  /* Animation de défilement du texte */
+  /* Effet de défilement de gauche à droite */
   @keyframes marquee {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
   }
 
-  /* Style spécifique pour le nom Twitch */
+  /* Style pour le nom Twitch avec effet glow dynamique */
   .twitch-name {
-    color: #9147ff; /* Couleur officielle de Twitch */
-    margin-left: 5px;
+    color: #9147ff; /* Couleur Twitch */
     font-weight: bold;
-    text-shadow: 2px 2px 8px rgba(145, 71, 255, 0.6);
+    padding-left: 5px;
+    animation: glow 1.5s ease-in-out infinite alternate; /* Effet de glow animé */
+  }
+
+  /* Animation de glow pulsant */
+  @keyframes glow {
+    from { text-shadow: 0 0 5px #9147ff, 0 0 10px #9147ff, 0 0 15px #9147ff, 0 0 20px rgba(145, 71, 255, 0.5); }
+    to { text-shadow: 0 0 10px #9147ff, 0 0 20px #9147ff, 0 0 30px #9147ff, 0 0 40px rgba(145, 71, 255, 0.8); }
   }
 </style>
