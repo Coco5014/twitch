@@ -5,7 +5,7 @@
 </div>
 
 <style>
-  /* Conteneur principal */
+  /* Conteneur principal avec effet de lueur */
   .marquee-container {
     width: 100%;
     display: flex;
@@ -13,20 +13,27 @@
     position: fixed;
     bottom: 20px;
     z-index: 9999;
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+
+  /* Animation de lueur douce */
+  @keyframes glow {
+    0% { box-shadow: 0 0 10px rgba(145, 71, 255, 0.6); }
+    100% { box-shadow: 0 0 20px rgba(145, 71, 255, 1); }
   }
 
   /* Style de la capsule autour du texte */
   .marquee {
     display: inline-block;
-    padding: 10px 25px;
-    font-size: 20px;
+    padding: 10px 30px;
+    font-size: 22px;
     font-weight: bold;
     color: #ffffff;
-    background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
-    border-radius: 25px; /* Forme arrondie */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Ombre douce */
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(30, 30, 30, 0.8));
+    border-radius: 30px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
     white-space: nowrap;
-    animation: marquee 15s linear infinite; /* Animation de défilement lent */
+    animation: marquee 15s linear infinite;
   }
 
   /* Animation de défilement fluide */
@@ -35,16 +42,24 @@
     100% { transform: translateX(-100%); }
   }
 
-  /* Style pour le lien Twitch */
+  /* Style pour le lien Twitch avec effet de transition de couleur */
   .twitch-name {
-    color: #9147ff; /* Couleur officielle de Twitch */
+    color: #9147ff;
     font-weight: bold;
     text-decoration: none;
-    margin-left: 5px;
+    transition: color 0.3s ease;
+    animation: colorChange 3s ease-in-out infinite alternate;
   }
 
-  /* Style sobre pour le survol */
+  /* Animation de couleur pour le lien Twitch */
+  @keyframes colorChange {
+    0% { color: #9147ff; }
+    100% { color: #ffffff; }
+  }
+
+  /* Style de survol pour le lien */
   .twitch-name:hover {
-    color: #ffffff;
+    color: #ff4d4d;
+    text-shadow: 0 0 8px rgba(255, 77, 77, 0.8);
   }
 </style>
