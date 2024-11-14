@@ -1,11 +1,11 @@
 <div class="marquee-container">
   <div class="marquee">
-    🥥 Mon Twitch : <a href="https://www.twitch.tv/Cocolapps" target="_blank" class="twitch-name">Cocolapps</a> 🥥
+    <span class="twitch-icon">📺</span> Suivez-moi sur Twitch : <a href="https://www.twitch.tv/Cocolapps" target="_blank" class="twitch-name">Cocolapps</a> <span class="twitch-icon">🔥</span>
   </div>
 </div>
 
 <style>
-  /* Conteneur principal avec effet de lueur */
+  /* Conteneur principal avec effet de pulsation */
   .marquee-container {
     width: 100%;
     display: flex;
@@ -13,27 +13,24 @@
     position: fixed;
     bottom: 20px;
     z-index: 9999;
-    animation: glow 3s ease-in-out infinite alternate;
   }
 
-  /* Animation de lueur douce */
-  @keyframes glow {
-    0% { box-shadow: 0 0 10px rgba(145, 71, 255, 0.6); }
-    100% { box-shadow: 0 0 20px rgba(145, 71, 255, 1); }
-  }
-
-  /* Style de la capsule autour du texte */
+  /* Capsule de texte avec bords violets */
   .marquee {
     display: inline-block;
     padding: 10px 30px;
     font-size: 22px;
     font-weight: bold;
     color: #ffffff;
-    background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(30, 30, 30, 0.8));
-    border-radius: 30px;
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+    background: #2c2c2c;
+    border: 3px solid #9147ff; /* Bord violet Twitch */
+    border-radius: 50px;
+    box-shadow: 0px 6px 20px rgba(145, 71, 255, 0.4);
     white-space: nowrap;
     animation: marquee 15s linear infinite;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
   /* Animation de défilement fluide */
@@ -42,24 +39,37 @@
     100% { transform: translateX(-100%); }
   }
 
-  /* Style pour le lien Twitch avec effet de transition de couleur */
+  /* Icônes avec effet de pulsation */
+  .twitch-icon {
+    font-size: 24px;
+    color: #9147ff;
+    animation: iconPulse 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes iconPulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); }
+  }
+
+  /* Style pour le lien Twitch avec animation de couleur */
   .twitch-name {
     color: #9147ff;
     font-weight: bold;
     text-decoration: none;
+    position: relative;
     transition: color 0.3s ease;
-    animation: colorChange 3s ease-in-out infinite alternate;
+    animation: twitchTextGlow 3s ease-in-out infinite alternate;
   }
 
-  /* Animation de couleur pour le lien Twitch */
-  @keyframes colorChange {
-    0% { color: #9147ff; }
-    100% { color: #ffffff; }
+  /* Animation de lueur pour le lien Twitch */
+  @keyframes twitchTextGlow {
+    0% { color: #9147ff; text-shadow: 0 0 5px rgba(145, 71, 255, 0.5); }
+    100% { color: #ffffff; text-shadow: 0 0 10px rgba(145, 71, 255, 1); }
   }
 
-  /* Style de survol pour le lien */
+  /* Effet de survol pour le lien */
   .twitch-name:hover {
     color: #ff4d4d;
-    text-shadow: 0 0 8px rgba(255, 77, 77, 0.8);
+    text-shadow: 0 0 10px rgba(255, 77, 77, 0.8);
   }
 </style>
