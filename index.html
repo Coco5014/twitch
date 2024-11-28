@@ -1,75 +1,66 @@
-<div class="marquee-container">
-  <div class="marquee">
-    <span class="twitch-icon">📺</span>Viens sur twitch : <a href="https://www.twitch.tv/Cocolapps" target="_blank" class="twitch-name">Cocolapps</a> <span class="twitch-icon">🔥</span>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Twitch Animation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #18181b;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-<style>
-  /* Conteneur principal avec effet de pulsation */
-  .marquee-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    bottom: 20px;
-    z-index: 9999;
-  }
+        .twitch-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
 
-  /* Capsule de texte avec bords violets */
-  .marquee {
-    display: inline-block;
-    padding: 10px 30px;
-    font-size: 22px;
-    font-weight: bold;
-    color: #ffffff;
-    background: #2c2c2c;
-    border: 3px solid #9147ff; /* Bord violet Twitch */
-    border-radius: 50px;
-    box-shadow: 0px 6px 20px rgba(145, 71, 255, 0.4);
-    white-space: nowrap;
-    animation: marquee 15s linear infinite;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+        .twitch-logo {
+            width: 100%;
+            height: 100%;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/e/ef/Twitch_glitch_logo.svg') no-repeat center/contain;
+            transition: transform 0.3s ease-in-out;
+        }
 
-  /* Animation de défilement fluide */
-  @keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
+        .twitch-name {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #9146ff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 16px;
+            font-weight: bold;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s ease-in-out;
+            border-radius: 0 0 10px 10px;
+        }
 
-  /* Icônes avec effet de pulsation */
-  .twitch-icon {
-    font-size: 24px;
-    color: #9147ff;
-    animation: iconPulse 1.5s ease-in-out infinite alternate;
-  }
+        .twitch-container:hover .twitch-logo {
+            transform: translateY(-50%);
+        }
 
-  @keyframes iconPulse {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.2); }
-  }
-
-  /* Style pour le lien Twitch avec animation de couleur */
-  .twitch-name {
-    color: #9147ff;
-    font-weight: bold;
-    text-decoration: none;
-    position: relative;
-    transition: color 0.3s ease;
-    animation: twitchTextGlow 3s ease-in-out infinite alternate;
-  }
-
-  /* Animation de lueur pour le lien Twitch */
-  @keyframes twitchTextGlow {
-    0% { color: #9147ff; text-shadow: 0 0 5px rgba(145, 71, 255, 0.5); }
-    100% { color: #ffffff; text-shadow: 0 0 10px rgba(145, 71, 255, 1); }
-  }
-
-  /* Effet de survol pour le lien */
-  .twitch-name:hover {
-    color: #ff4d4d;
-    text-shadow: 0 0 10px rgba(255, 77, 77, 0.8);
-  }
-</style>
+        .twitch-container:hover .twitch-name {
+            transform: scaleY(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="twitch-container">
+        <div class="twitch-logo"></div>
+        <div class="twitch-name">Cocolapps</div>
+    </div>
+</body>
+</html>
