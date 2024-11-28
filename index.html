@@ -57,7 +57,7 @@
             height: 80px;
             background: url('https://i.ibb.co/mGD7MRp/noix3.png') no-repeat center/contain;
             opacity: 0; /* Invisible par défaut */
-            animation: flyAround 30s infinite, coconutVisibility 30s infinite;
+            animation: flyAround 30s cubic-bezier(0.42, 0, 0.58, 1) infinite, coconutVisibility 30s infinite;
         }
 
         /* Animation for logo sliding up */
@@ -81,7 +81,7 @@
             60% { transform: translateY(-8px); }
         }
 
-        /* Animation for flying coconut */
+        /* Animation for flying coconut with smoother motion */
         @keyframes flyAround {
             0% { top: -40px; left: 50%; transform: translateX(-50%) rotate(0deg); opacity: 1; }
             25% { top: 20%; left: 100%; transform: translateX(-50%) rotate(90deg); }
