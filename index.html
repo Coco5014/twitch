@@ -19,7 +19,7 @@
 
         .twitch-container {
             position: relative;
-            width: 200px; /* Taille augmentée pour meilleure visibilité */
+            width: 200px;
             height: 200px;
         }
 
@@ -27,18 +27,18 @@
             width: 100%;
             height: 100%;
             background: url('https://i.ibb.co/ypKcqX7/twitrch.png') no-repeat center/contain;
-            animation: slideUp 30s infinite;
+            animation: bounceEffect 2s infinite, slideUp 30s infinite;
         }
 
         .twitch-name {
             position: absolute;
-            top: 100%;
+            top: 85%; /* Réduit l'espace entre le logo et le pseudo */
             left: 0;
             width: 100%;
             background-color: #9146ff; /* Couleur Twitch */
             color: white;
             text-align: center;
-            padding: 15px 0;
+            padding: 10px 0;
             font-size: 24px; /* Texte agrandi */
             font-weight: bold;
             letter-spacing: 2px; /* Espacement amélioré */
@@ -63,6 +63,13 @@
             0%, 60% { transform: scaleY(0); }
             65%, 95% { transform: scaleY(1); } /* Pseudo visible pendant 15 secondes */
             100% { transform: scaleY(0); }
+        }
+
+        /* Animation for bounce effect on the logo */
+        @keyframes bounceEffect {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-8px); }
         }
 
         /* Subtle glowing effect for the name */
