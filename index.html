@@ -14,12 +14,14 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            overflow: hidden;
         }
 
         .twitch-container {
             position: relative;
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
+            animation: glowEffect 15s infinite;
         }
 
         .twitch-logo {
@@ -34,18 +36,32 @@
             top: 100%;
             left: 0;
             width: 100%;
-            background: linear-gradient(90deg, #9146ff, #772ce8);
+            background: linear-gradient(90deg, #ff00ff, #9146ff, #00ccff);
             color: white;
             text-align: center;
             padding: 15px 0;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             transform: scaleY(0);
             transform-origin: top;
             animation: revealName 15s infinite;
-            border-radius: 0 0 10px 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 10px rgba(145, 70, 255, 0.5);
+        }
+
+        /* Glow Effect around container */
+        @keyframes glowEffect {
+            0%, 75% {
+                box-shadow: 0 0 5px #9146ff, 0 0 10px rgba(145, 70, 255, 0.3);
+            }
+            80%, 90% {
+                box-shadow: 0 0 20px #ff00ff, 0 0 40px rgba(255, 0, 255, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 5px #9146ff, 0 0 10px rgba(145, 70, 255, 0.3);
+            }
         }
 
         /* Animation for logo sliding up */
