@@ -57,7 +57,7 @@
             height: 80px;
             background: url('https://i.ibb.co/mGD7MRp/noix3.png') no-repeat center/contain;
             opacity: 0; /* Invisible par défaut */
-            animation: flyAround 30s cubic-bezier(0.42, 0, 0.58, 1) infinite, coconutVisibility 30s infinite;
+            animation: flyAroundSmooth 30s cubic-bezier(0.25, 0.1, 0.25, 1) infinite, coconutVisibility 30s infinite;
         }
 
         /* Animation for logo sliding up */
@@ -81,13 +81,14 @@
             60% { transform: translateY(-8px); }
         }
 
-        /* Animation for flying coconut with smoother motion */
-        @keyframes flyAround {
-            0% { top: -40px; left: 50%; transform: translateX(-50%) rotate(0deg); opacity: 1; }
-            25% { top: 20%; left: 100%; transform: translateX(-50%) rotate(90deg); }
-            50% { top: 100%; left: 50%; transform: translateX(-50%) rotate(180deg); }
-            75% { top: 20%; left: 0%; transform: translateX(-50%) rotate(270deg); }
-            100% { top: -40px; left: 50%; transform: translateX(-50%) rotate(360deg); }
+        /* Smoother motion for the flying coconut */
+        @keyframes flyAroundSmooth {
+            0% { top: -50px; left: 50%; transform: translate(-50%, 0) scale(0.8) rotate(0deg); opacity: 1; }
+            20% { top: 20%; left: 85%; transform: translate(-50%, -50%) scale(1) rotate(90deg); }
+            40% { top: 90%; left: 70%; transform: translate(-50%, -50%) scale(1.2) rotate(180deg); }
+            60% { top: 50%; left: 10%; transform: translate(-50%, -50%) scale(1) rotate(270deg); }
+            80% { top: 20%; left: 40%; transform: translate(-50%, -50%) scale(0.9) rotate(360deg); }
+            100% { top: -50px; left: 50%; transform: translate(-50%, 0) scale(0.8) rotate(450deg); opacity: 1; }
         }
 
         /* Control coconut visibility */
