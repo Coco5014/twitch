@@ -55,8 +55,9 @@
             position: absolute;
             width: 80px; /* Taille de la noix de coco */
             height: 80px;
-            background: url('https://i.ibb.co/mGD7MRp/noix3.png') no-repeat center/contain;
-            animation: flyAround 8s infinite ease-in-out;
+            background: url('noix3.PNG') no-repeat center/contain;
+            opacity: 0; /* Invisible par défaut */
+            animation: flyAround 30s infinite, coconutVisibility 30s infinite;
         }
 
         /* Animation for logo sliding up */
@@ -82,11 +83,18 @@
 
         /* Animation for flying coconut */
         @keyframes flyAround {
-            0% { top: -40px; left: 50%; transform: translateX(-50%) rotate(0deg); }
+            0% { top: -40px; left: 50%; transform: translateX(-50%) rotate(0deg); opacity: 1; }
             25% { top: 20%; left: 100%; transform: translateX(-50%) rotate(90deg); }
             50% { top: 100%; left: 50%; transform: translateX(-50%) rotate(180deg); }
             75% { top: 20%; left: 0%; transform: translateX(-50%) rotate(270deg); }
             100% { top: -40px; left: 50%; transform: translateX(-50%) rotate(360deg); }
+        }
+
+        /* Control coconut visibility */
+        @keyframes coconutVisibility {
+            0%, 60% { opacity: 0; } /* Cachée avant que le pseudo apparaisse */
+            65%, 95% { opacity: 1; } /* Visible uniquement quand le pseudo est affiché */
+            100% { opacity: 0; } /* Cachée après disparition du pseudo */
         }
     </style>
 </head>
