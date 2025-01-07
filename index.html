@@ -15,7 +15,7 @@
     }
 
     .subgoal-container {
-      width: 300px;
+      width: 400px;
       padding: 20px;
       background: rgba(0, 0, 0, 0.7);
       border-radius: 10px;
@@ -44,67 +44,99 @@
     }
 
     .chest-container img {
-      width: 100px;
+      width: 120px;
+    }
+
+    .subgoal-list {
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .subgoal-list li {
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
   <div class="subgoal-container">
-    <h2>Subgoal : 10 Subs</h2>
-    <div class="subgoal-progress">
-      <div class="progress-bar"></div>
+    <h2>Subgoals</h2>
+
+    <!-- First Goal -->
+    <div class="subgoal">
+      <h3>Objective 1: 5 Subs</h3>
+      <div class="subgoal-progress">
+        <div class="progress-bar" id="progress-bar-1"></div>
+      </div>
+      <div class="chest-container">
+        <img id="closed-chest-1" src="https://i.imgur.com/Oe4H5Kn.png" alt="Coffre fermé">
+        <img id="open-chest-1" src="https://i.imgur.com/7nDAygh.png" alt="Coffre ouvert" style="display: none;">
+      </div>
+      <p>Progression : <span id="current-progress-1">0</span>/5</p>
     </div>
-    <div class="chest-container">
-      <img id="closed-chest" src="https://via.placeholder.com/100?text=Closed+Chest" alt="Coffre fermé">
-      <img id="open-chest" src="https://via.placeholder.com/100?text=Open+Chest" alt="Coffre ouvert" style="display: none;">
+
+    <!-- Second Goal -->
+    <div class="subgoal">
+      <h3>Objective 2: 10 Subs</h3>
+      <div class="subgoal-progress">
+        <div class="progress-bar" id="progress-bar-2"></div>
+      </div>
+      <div class="chest-container">
+        <img id="closed-chest-2" src="https://i.imgur.com/Oe4H5Kn.png" alt="Coffre fermé">
+        <img id="open-chest-2" src="https://i.imgur.com/7nDAygh.png" alt="Coffre ouvert" style="display: none;">
+      </div>
+      <p>Progression : <span id="current-progress-2">0</span>/10</p>
     </div>
-    <p>Progression : <span id="current-progress">0</span>/10</p>
+
+    <ul class="subgoal-list">
+      <li><strong>5 Subs:</strong> Unlock a resource drop for all players.</li>
+      <li><strong>10 Subs:</strong> Host a special in-game event with rare rewards.</li>
+      <li><strong>15 Subs:</strong> Build a statue of the top supporter in the server.</li>
+      <li><strong>20 Subs:</strong> Release a custom boss fight for the community.</li>
+    </ul>
   </div>
 
   <script>
-    // Initial variables
-    let currentProgress = 0;
-    const goal = 10; // Nombre de subs nécessaires
-
-    // DOM elements
-    const progressBar = document.querySelector('.progress-bar');
-    const currentProgressText = document.getElementById('current-progress');
-    const closedChest = document.getElementById('closed-chest');
-    const openChest = document.getElementById('open-chest');
+    // Goals and progress
+    const goals = [
+      { id: 1, total: 5, current: 0 },
+      { id: 2, total: 10, current: 0 }
+    ];
 
     // Function to update progress
-    function updateProgress(subs) {
-      currentProgress = Math.min(subs, goal); // Évite de dépasser l'objectif
-      const percentage = (currentProgress / goal) * 100;
+    function updateProgress(goalId, subs) {
+      const goal = goals.find(g => g.id === goalId);
+      if (!goal) return;
+
+      goal.current = Math.min(subs, goal.total);
+      const percentage = (goal.current / goal.total) * 100;
 
       // Update progress bar and text
-      progressBar.style.width = `${percentage}%`;
-      currentProgressText.textContent = currentProgress;
+      document.querySelector(`#progress-bar-${goalId}`).style.width = `${percentage}%`;
+      document.querySelector(`#current-progress-${goalId}`).textContent = goal.current;
 
       // Check if goal is reached
-      if (currentProgress >= goal) {
-        openChestAnimation();
+      if (goal.current >= goal.total) {
+        document.querySelector(`#closed-chest-${goalId}`).style.display = 'none';
+        document.querySelector(`#open-chest-${goalId}`).style.display = 'block';
+
+        // Optionnel : Play sound when chest opens
+        const audio = new Audio('https://freesound.org/data/previews/250/250629_4486188-lq.mp3');
+        audio.play();
       }
     }
 
-    // Function to trigger chest opening animation
-    function openChestAnimation() {
-      closedChest.style.display = 'none';
-      openChest.style.display = 'block';
-
-      // Optionnel : Ajouter une animation sonore
-      const audio = new Audio('https://freesound.org/data/previews/250/250629_4486188-lq.mp3');
-      audio.play();
-    }
-
-    // Simulate subs progression (à remplacer par un système dynamique)
+    // Simulate subs progression (to replace with dynamic Twitch integration)
     let simulatedSubs = 0;
     setInterval(() => {
-      if (simulatedSubs < goal) {
+      if (simulatedSubs < 15) {
         simulatedSubs++;
-        updateProgress(simulatedSubs);
+        if (simulatedSubs <= 5) {
+          updateProgress(1, simulatedSubs);
+        } else if (simulatedSubs <= 10) {
+          updateProgress(2, simulatedSubs - 5);
+        }
       }
-    }, 3000); // Incrémente toutes les 3 secondes
+    }, 3000);
   </script>
 </body>
 </html>
