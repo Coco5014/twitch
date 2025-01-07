@@ -1,82 +1,110 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animation Logo Twitch</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: transparent; /* Fond transparent */
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subgoal Overlay</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: transparent;
+      color: white;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
 
-        .twitch-container {
-            position: relative;
-            width: 200px;
-            height: 200px;
-        }
+    .subgoal-container {
+      width: 300px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      margin: auto;
+    }
 
-        .twitch-logo {
-            width: 100%;
-            height: 100%;
-            background: url('https://i.ibb.co/ypKcqX7/twitrch.png') no-repeat center/contain;
-            animation: bounceEffect 2s infinite, slideUp 30s infinite;
-        }
+    .subgoal-progress {
+      width: 100%;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
 
-        .twitch-name {
-            position: absolute;
-            top: 85%; /* Réduit l'espace entre le logo et le pseudo */
-            left: 0;
-            width: 100%;
-            background-color: #9146ff; /* Couleur Twitch */
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            font-size: 24px; /* Texte agrandi */
-            font-weight: bold;
-            letter-spacing: 2px; /* Espacement amélioré */
-            text-transform: uppercase;
-            transform: scaleY(0);
-            transform-origin: top;
-            animation: revealName 30s infinite;
-            border-radius: 0 0 10px 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            transition: transform 0.5s ease-in-out;
-        }
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #00ff00, #00aa00);
+      width: 0%;
+      transition: width 0.5s ease;
+    }
 
-        /* Animation for logo sliding up */
-        @keyframes slideUp {
-            0%, 60% { transform: translateY(0); }
-            65%, 80% { transform: translateY(-50%); }
-            100% { transform: translateY(0); }
-        }
+    .chest-container {
+      margin-top: 10px;
+    }
 
-        /* Animation for name reveal */
-        @keyframes revealName {
-            0%, 60% { transform: scaleY(0); }
-            65%, 95% { transform: scaleY(1); } /* Pseudo visible pendant 15 secondes */
-            100% { transform: scaleY(0); }
-        }
-
-        /* Animation for bounce effect on the logo */
-        @keyframes bounceEffect {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-15px); }
-            60% { transform: translateY(-8px); }
-        }
-    </style>
+    .chest-container img {
+      width: 100px;
+    }
+  </style>
 </head>
 <body>
-    <div class="twitch-container">
-        <div class="twitch-logo"></div>
-        <div class="twitch-name">Cocolapps</div>
+  <div class="subgoal-container">
+    <h2>Subgoal : 10 Subs</h2>
+    <div class="subgoal-progress">
+      <div class="progress-bar"></div>
     </div>
+    <div class="chest-container">
+      <img id="closed-chest" src="https://via.placeholder.com/100?text=Closed+Chest" alt="Coffre fermé">
+      <img id="open-chest" src="https://via.placeholder.com/100?text=Open+Chest" alt="Coffre ouvert" style="display: none;">
+    </div>
+    <p>Progression : <span id="current-progress">0</span>/10</p>
+  </div>
+
+  <script>
+    // Initial variables
+    let currentProgress = 0;
+    const goal = 10; // Nombre de subs nécessaires
+
+    // DOM elements
+    const progressBar = document.querySelector('.progress-bar');
+    const currentProgressText = document.getElementById('current-progress');
+    const closedChest = document.getElementById('closed-chest');
+    const openChest = document.getElementById('open-chest');
+
+    // Function to update progress
+    function updateProgress(subs) {
+      currentProgress = Math.min(subs, goal); // Évite de dépasser l'objectif
+      const percentage = (currentProgress / goal) * 100;
+
+      // Update progress bar and text
+      progressBar.style.width = `${percentage}%`;
+      currentProgressText.textContent = currentProgress;
+
+      // Check if goal is reached
+      if (currentProgress >= goal) {
+        openChestAnimation();
+      }
+    }
+
+    // Function to trigger chest opening animation
+    function openChestAnimation() {
+      closedChest.style.display = 'none';
+      openChest.style.display = 'block';
+
+      // Optionnel : Ajouter une animation sonore
+      const audio = new Audio('https://freesound.org/data/previews/250/250629_4486188-lq.mp3');
+      audio.play();
+    }
+
+    // Simulate subs progression (à remplacer par un système dynamique)
+    let simulatedSubs = 0;
+    setInterval(() => {
+      if (simulatedSubs < goal) {
+        simulatedSubs++;
+        updateProgress(simulatedSubs);
+      }
+    }, 3000); // Incrémente toutes les 3 secondes
+  </script>
 </body>
 </html>
